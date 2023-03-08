@@ -1,0 +1,20 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  margin: 0;
+  font-family: Arial, serif;
+  color: inherit;
+  line-height: 100%;
+}
+
+a,
+.a {
+  transition: color .3s ease-in-out;
+  &:hover {
+    color: var(--c-blue);
+  }
+}

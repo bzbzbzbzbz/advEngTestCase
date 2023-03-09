@@ -4,7 +4,6 @@ import IndexView from '@/views/IndexView.vue'
 import newOrder from '@/views/newOrder.vue'
 import authPage from '@/views/authPage.vue'
 
-
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -36,6 +35,15 @@ const router = new VueRouter({
       }
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  const auth = localStorage.getItem('auth')
+  if (to.meta.requiresAuth !== !!auth) {
+    next(auth ? '' : '/auth')
+  } else {
+    next()
+  }
 })
 
 export default router
